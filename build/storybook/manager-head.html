@@ -1,0 +1,62 @@
+<link rel="shortcut icon" href="brand-favicon.ico" />
+<style>
+    #storybook-explorer-tree .sidebar-item {
+        font-family: "Rubik", -apple-system, "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    #storybook-explorer-tree .sidebar-item[data-nodetype="group"] {
+        font-family: "Rubik", -apple-system, "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0;
+        color: #333333;
+        text-transform: none;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 10px 0 0 0;
+    }
+
+    #storybook-explorer-tree .sidebar-subheading button span {
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid;
+    }
+
+    #storybook-explorer-searchfield {
+        border-radius: 3px;
+        background: #ffffff;
+    }
+
+    #storybook-explorer-tree .sidebar-item[data-nodetype="story"] + .sidebar-item[data-nodetype="story"],
+    #storybook-explorer-tree .sidebar-item[data-nodetype="component"] + .sidebar-item[data-nodetype="story"] {
+        padding-left: 3.5rem;
+    }
+
+    #storybook-explorer-tree .sidebar-item[data-nodetype="component"] {
+        padding-left: 2.5rem;
+    }
+
+    #storybook-explorer-tree .sidebar-item[data-nodetype="story"] {
+        padding-left: 2.25rem;
+    }
+
+    #storybook-explorer-tree .sidebar-item[data-nodetype="document"] + #storybook-explorer-tree button.sidebar-item[data-nodetype="component"],
+    #storybook-explorer-tree .sidebar-item,
+    a.sidebar-item + .sidebar-item[data-nodetype="component"] {
+        padding-left: 1.75rem;
+    }
+
+
+
+    #storybook-explorer-tree .sidebar-item svg {
+        display: none;
+    }
+
+    #storybook-explorer-tree .sidebar-item span {
+        margin-left: -8px;
+    }
+
+    .docblock-argstable-body input, .docblock-argstable-body textarea, .docblock-argstable-body select {
+        color: #333;
+    }
+</style>

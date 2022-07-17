@@ -1,0 +1,97 @@
+name: Push
+on:
+  push:
+    branches:
+      - main
+env:
+  BUCKET_NAME: design-system-staging-mycompany
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '16.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Unit-Tests
+        run: yarn coverage:unit
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run Build storybook
+        run: yarn storybook:build
+
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server dist-storybook --port 6006 --silent" \
+            "npx wait-on tcp:6006 && yarn test:storybook --config-dir build/storybook"
+
+      - name: Merge Test Coverage
+        run: 'yarn run coverage:merge && yarn run coverage:merge-report'
+
+      - name: Run sonar scanner
+        uses: SonarSource/sonarcloud-github-action@v1.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Run Build
+        run: yarn build
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.AVS_PIPELINE_PAT }}
+          SEMANTIC_RELEASE_PACKAGE: '@mycompany/design-system'
+        run: npx semantic-release
+
+  deploy_storybook:
+    name: Deploy Storybook
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '16.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Build
+        run: yarn storybook:build
+
+      - name: Setup GCloud Credentials
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          service_account_key: ${{ secrets.GCP_PIPELINE_SA_MARKETPLACE_STAGING }}
+          export_default_credentials: true
+
+      - name: Upload Files
+        uses: google-github-actions/upload-cloud-storage@main
+        with:
+          path: dist-storybook
+          destination: ${{ env.BUCKET_NAME }}
+          parent: false

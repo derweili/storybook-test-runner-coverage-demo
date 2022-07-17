@@ -1,0 +1,176 @@
+{
+  "name": "@mycompany/design-system",
+  "author": "mycompany",
+  "version": "0.0.1",
+  "description": "mycompany design system",
+  "scripts": {
+    "prepare": "husky install build/husky",
+    "test": "yarn run test:jest",
+    "test:jest": "jest",
+    "coverage": "yarn run coverage:unit && yarn run coverage:storybook && yarn run coverage:convert && yarn run coverage:merge && yarn run coverage:create-merge-report",
+    "coverage:unit": "yarn run test:jest --coverage --coverageDirectory=coverage/unit",
+    "coverage:storybook": "yarn run test:storybook --coverage",
+    "coverage:convert": "nyc report --reporter=lcov --temp-dir=./coverage/storybook --report-dir=./coverage/storybook",
+    "coverage:merge": "istanbul-merge --out coverage/merged/coverage-final.json ./coverage/unit/coverage-final.json  ./coverage/storybook/coverage-storybook.json",
+    "coverage:create-merge-report": "nyc report --reporter=lcov --reporter=text --temp-dir=./coverage/merged --report-dir=./coverage/merged",
+    "test:storybook": "test-storybook --config-dir build/storybook",
+    "storybook:run": "start-storybook -p 6006 --config-dir build/storybook --static-dir build/storybook/public",
+    "storybook:build": "build-storybook --config-dir build/storybook --static-dir build/storybook/public --output-dir dist-storybook",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "start": "yarn run storybook:run",
+    "commit": "cz",
+    "build": "rimraf dist && yarn run build:esm && yarn run build:cjs",
+    "build:esm": "rollup --config ./build/rollup/esm.config.js",
+    "build:cjs": "rollup --config ./build/rollup/cjs.config.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "engines": {
+    "node": "^16.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mycompany/design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "component-library",
+    "brand"
+  ],
+  "contributors": [
+    {
+      "name": "Alexander Mührenberg",
+      "email": "alexander.muehrenberg@mycompany.de"
+    }
+  ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "coverageProvider": "babel",
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    },
+    "moduleNameMapper": {
+      "@mycompany/design-system/(.*)": "<rootDir>/src/$1"
+    },
+    "testPathIgnorePatterns": [
+      "__tests__/utils"
+    ],
+    "testEnvironment": "jest-environment-jsdom",
+    "coveragePathIgnorePatterns": [
+      ".stories.tsx",
+      "src/__tests__",
+      "docs",
+      "build",
+      "pages"
+    ]
+  },
+  "nyc": {
+    "all": true
+  },
+  "dependencies": {
+    "color": "3.1.3",
+    "gql": "^1.1.2",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
+    "i18next": "^21.6.12",
+    "i18next-http-backend": "^1.4.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "json-loader": "^0.5.7",
+    "lodash.range": "^3.2.0",
+    "lodash.uniqueid": "^4.0.1",
+    "react-i18next": "^11.15.5",
+    "react-ink": "^6.4.0",
+    "react-spring": "^8.0.27",
+    "styled-normalize": "^8.0.7",
+    "urql": "^2.2.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-typescript": "^7.18.6",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-coverage": "^0.0.2",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-jest": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addons": "^6.5.9",
+    "@storybook/jest": "^0.0.10",
+    "@storybook/react": "^6.5.9",
+    "@storybook/test-runner": "^0.3.0",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.9",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "12.1.5",
+    "@types/color": "^3.0.3",
+    "@types/lodash.range": "^3.2.6",
+    "@types/lodash.uniqueid": "^4.0.6",
+    "@types/react-dom": "^17.0.1",
+    "@types/styled-components": "^5.1.23",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "babel-loader": "^8.2.2",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-better-styled-components": "^1.1.2",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-styled-components-a11y": "^0.0.34",
+    "husky": "^5.1.3",
+    "istanbul-merge": "^1.1.1",
+    "jest": "27",
+    "nyc": "^15.1.0",
+    "prettier": "^2.5.1",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.0",
+    "react-docgen-typescript": "^1.21.0",
+    "react-dom": "^17.0.0",
+    "react-json-view": "^1.21.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.68.0",
+    "storybook-addon-sketch": "^0.2.1",
+    "styled-components": "~5.3.3",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.5.5"
+  }
+}

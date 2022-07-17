@@ -1,0 +1,85 @@
+import { Fragment } from 'react'
+import {
+  Story,
+  Meta,
+  ArgsTable,
+  Preview,
+  Canvas,
+  Source,
+} from '@storybook/addon-docs'
+import { HeartIcon, iconMap } from '@mycompany/design-system/Icon'
+import IconHover from './base/IconHover'
+
+<Meta title="Component/Icon" />
+
+# Icons
+
+<Story name="Introduction">{(args) => <HeartIcon {...args} />}</Story>
+
+## Overview
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Default</th>
+      <th>Fill</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.keys(iconMap).map((name) => {
+      const  Component = iconMap[name];
+      return (
+          <tr key={name}>
+            <td>{name}</td>
+            <td style={{ textAlign: 'center'}}><Component /></td>
+            <td style={{ textAlign: 'center'}}><Component fill={true} /></td>
+            <td>
+                <Source
+                  language='tsx'
+                  code={`
+                    import { ${Component.displayName} } from '@mycompany/design-system/Icon'
+                  `}>
+              </Source>
+            </td>
+          </tr>
+      )
+    })}
+
+  </tbody>
+</table>
+
+## Usage
+
+```tsx
+import { HeartIcon } from '@mycompany/design-system/Icon'
+```
+
+<Canvas>
+  <Story name="Usage">{(args) => <HeartIcon {...args} />}</Story>
+</Canvas>
+
+### Fill
+
+<Canvas>
+  <Story name="Fill">{(args) => <HeartIcon fill="true" {...args} />}</Story>
+</Canvas>
+
+### Hover
+
+<Canvas>
+  <Story name="Hover">
+    {(args) => (
+      <>
+        <IconHover>
+          <HeartIcon {...args} />
+        </IconHover>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={HeartIcon} />

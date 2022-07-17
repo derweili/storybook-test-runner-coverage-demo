@@ -1,0 +1,54 @@
+import { Meta, Story } from '@storybook/addon-docs'
+import theme from './'
+import { ColorPreview } from '../../../docs/preview'
+import { ColorValue } from '../value'
+
+<Meta title="Styleguide/Color" />
+
+# Colors
+
+## Misc
+
+<>
+  {Object.keys(theme.color).map(
+    (name) =>
+      theme.color[name] instanceof ColorValue && (
+        <div key={name}>
+          <h3>{name}</h3>
+          <ColorPreview color={theme.color[name]} />
+        </div>
+      )
+  )}
+</>
+
+## Variant
+
+<>
+  {Object.keys(theme.color.variant).map((variantName) => (
+    <div key={variantName}>
+      <h3>{variantName}</h3>
+      {Object.keys(theme.color.variant[variantName]).map((name) => (
+        <div key={name}>
+          <h4>{name}</h4>
+          <ColorPreview color={theme.color.variant[variantName][name]} />
+        </div>
+      ))}
+    </div>
+  ))}
+</>
+
+## Status
+
+<>
+  {Object.keys(theme.color.status).map((statusName) => (
+    <div key={statusName}>
+      <h3>{statusName}</h3>
+      {Object.keys(theme.color.status[statusName]).map((name) => (
+        <div key={name}>
+          <h4>{name}</h4>
+          <ColorPreview color={theme.color.status[statusName][name]} />
+        </div>
+      ))}
+    </div>
+  ))}
+</>

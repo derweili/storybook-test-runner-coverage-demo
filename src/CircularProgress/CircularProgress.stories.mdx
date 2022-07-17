@@ -1,0 +1,204 @@
+import { Story, Meta, ArgsTable, Preview, Canvas } from '@storybook/addon-docs'
+import { Size, Variant, Status } from '@mycompany/design-system/Styleguide'
+import CircularProgress from './CircularProgress'
+import { State } from './types'
+
+<Meta
+  title="Component/CircularProgress"
+  component={CircularProgress}
+  argTypes={{
+    state: {
+      options: State,
+      control: { type: 'radio' },
+    },
+    value: {
+      control: { type: 'range', min: 0, max: 100, step: 0.1 },
+    },
+    variant: {
+      options: Variant,
+      control: { type: 'radio' },
+    },
+    size: {
+      options: Size,
+      control: { type: 'radio' },
+    },
+    status: {
+      options: Status,
+      control: { type: 'radio' },
+    },
+    spacing: {
+      options: { None: false, ...Size },
+      control: { type: 'radio' },
+    },
+  }}
+/>
+
+# Circular Progress
+
+<Story name="Introduction" args={{ state: State.Indeterminate }}>
+  {(args) => <CircularProgress {...args} />}
+</Story>
+
+## State
+
+### Determinate
+
+<Canvas>
+  <Story
+    name="State: Determinate"
+    args={{ state: State.Determinate, value: 42 }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Indeterminate
+
+<Canvas>
+  <Story name="State: Indeterminate" args={{ state: State.Indeterminate }}>
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+## Variant
+
+### Primary
+
+<Canvas>
+  <Story
+    name="Variant: Primary"
+    args={{ state: State.Indeterminate, variant: Variant.Primary }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Secondary
+
+<Canvas>
+  <Story
+    name="Variant: Secondary"
+    args={{ state: State.Indeterminate, variant: Variant.Secondary }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+## Status
+
+### Success
+
+<Canvas>
+  <Story
+    name="Status: Success"
+    args={{ state: State.Indeterminate, status: Status.Success }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Warning
+
+<Canvas>
+  <Story
+    name="Status: Warning"
+    args={{ state: State.Indeterminate, status: Status.Warning }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Error
+
+<Canvas>
+  <Story
+    name="Status: Error"
+    args={{ state: State.Indeterminate, status: Status.Error }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+## Inherit
+
+Color inheriting works for all variants and status colors
+
+<Canvas>
+  <Story
+    name="Inherit"
+    args={{
+      state: State.Indeterminate,
+      variant: Variant.Secondary,
+      inherit: true,
+    }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+## Size
+
+### Tiny
+
+<Canvas>
+  <Story
+    name="Size: Tiny"
+    args={{ state: State.Indeterminate, size: Size.Tiny }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Small
+
+<Canvas>
+  <Story
+    name="Size: Small"
+    args={{ state: State.Indeterminate, size: Size.Small }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+  <Story
+    name="Size: Medium"
+    args={{ state: State.Indeterminate, size: Size.Medium }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+  <Story
+    name="Size: Large"
+    args={{ state: State.Indeterminate, size: Size.Large }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+### ExtraLarge
+
+<Canvas>
+  <Story
+    name="Size: ExtraLarge"
+    args={{ state: State.Indeterminate, size: Size.ExtraLarge }}
+  >
+    {(args) => <CircularProgress {...args} />}
+  </Story>
+</Canvas>
+
+## Usage
+
+```tsx
+import CircularProgress from '@mycompany/design-system/CircularProgress'
+```
+
+## Props
+
+<ArgsTable of={CircularProgress} />

@@ -1,0 +1,125 @@
+{
+  "api": {
+    "flashMessage": {
+      "items_with_insufficient_stock": "Es gibt Artikel in deinem Warenkorb, die nicht mehr in der gewünschten Menge lieferbar sind.",
+      "merchant_cannot_deliver_to_country": "Lieferung in dein ausgewähltes Land ist nicht möglich. Bitte wähle ein Land, in das deine Bestellung versendet werden kann.",
+      "sold_out_items_in_cart": "Es gibt ausverkaufte Artikel in deinem Warenkorb."
+    }
+  },
+  "cart": {
+    "help": {
+      "accordion": [
+        {
+          "body": "Die Versandkosten variieren je Shop und Lieferland. Sofern du bei mehreren Shops bestellst, fallen ggf. mehrfach Versandkosten an.",
+          "head": "Wie setzen sich die Versandkosten zusammen?"
+        },
+        {
+          "body": "Je Bestellung kannst du einen Code eingeben. Schreib uns gern vorab, falls du mehrere Wertgutscheine einlösen möchtest. Nachträgliche Änderungen sind nicht möglich.",
+          "head": "Wie kann ich mehrere Gutscheine einlösen?"
+        },
+        {
+          "body": "Jeder Shop verschickt die bestellten Artikel separat. Das hat zur Folge, dass die Anzahl der Shops, bei denen du bestellst, die Anzahl der Pakete bestimmt.",
+          "head": "Was bedeutet „Verkauf und Versand durch“?"
+        },
+        {
+          "body": "Die Lieferzeit kann je Shop / Produkt variieren. Die voraussichtliche Lieferzeit kannst du in der Warenkorb-Übersicht einsehen.",
+          "head": "Wann erhalte ich meine Bestellung?"
+        },
+        {
+          "body": "Da bei uns verschiedene Shops ihre Produkte verkaufen und separat versenden, unterscheiden sich die Retourebedingungen je Shop. Diese findest du auf der Produktseite.",
+          "head": "Wie sind die Retourebedingungen?"
+        }
+      ],
+      "heading": "Hast Du Fragen zur Bestellung?"
+    },
+    "index": {
+      "empty": {
+        "action": "Produkte entdecken",
+        "heading": "Dein Warenkorb ist leer.",
+        "paragraph": "Schau dich um und befülle deinen Warenkorb mit deinen Lieblingsprodukten."
+      },
+      "heading": "Dein Warenkorb"
+    },
+    "items": {
+      "carbonNeutralShipping": "CO2-neutraler Versand nach",
+      "heading": "Verkauf und Versand durch",
+      "noShipping": "nicht möglich",
+      "soldOut": "ausverkauft",
+      "bestPrice": "30-Tage Bestpreis"
+    },
+    "paymentOptions": {
+      "heading": "Akzeptierte Zahlungsarten"
+    },
+    "summary": {
+      "checkout": "Zur Kasse",
+      "heading": "Bestellübersicht",
+      "shippingPrice": "Voraussichtliche Versandkosten¹:",
+      "shippingPriceFootnote": "¹Die genauen Versandkosten werden im letzten Schritt berechnet. Wir kompensieren die CO2-Emissionen jedes Pakets und jeder Retoure.",
+      "totalItemCount": "{{count}} Artikel:",
+      "totalPrice": "Gesamtbetrag:",
+      "totalSavings": "Du sparst:",
+      "vouchers": "Gutscheine können im letzten Schritt des Bestellvorgangs eingelöst werden."
+    },
+    "quickSummary": {
+      "total": "Gesamtbetrag:",
+      "totalItemCount": "{{count}} Artikel",
+      "shipping": "Versandkosten¹"
+    }
+  },
+  "footer": {
+    "aboutmycompany": "Über mycompany",
+    "aboutUs": "Über uns",
+    "affiliatePartnerProgram": "Affiliate Partnerprogramm",
+    "contactForDealers": "Kontakt für Händler",
+    "cookieSettings": "Cookie Einstellungen",
+    "copyright": "© 2009–{{year}} mycompany, Hamburg",
+    "customerService": "Kundenservice",
+    "discountCoupons": "Rabattgutscheine",
+    "ecoAdvertisingMaterial": "Öko Werbemittel",
+    "facebook": "Facebook",
+    "footnoteBasePrice": " * Der „30-Tage-Bestpreis“ ist der niedrigste Preis, zu dem der:die Händler:in dieses Produkt in den 30 Tagen vor der letzten Preisänderung angeboten hat.",
+    "footnoteDeliver": "** Bei der Lieferzeit beziehen sich Werktage auf die Wochentage Montag bis Samstag, ausgenommen davon sind gesetzliche Feiertage in Bayern.",
+    "helpAndService": "Hilfe & Service",
+    "imprint": "Impressum",
+    "instagram": "Instagram",
+    "jobs": "Jobs",
+    "othersAboutUs": "Andere über uns",
+    "ourCategories": "Unsere Kategorien",
+    "ourCriteria": "Unsere Kriterien",
+    "ourGlossary": "Unser Glossar",
+    "ourTerms": "Unsere AGB",
+    "paymentOptions": "Zahlungsmöglichkeiten",
+    "pinterest": "Pinterest",
+    "press": "Presse",
+    "privacy": "Datenschutz",
+    "studentDiscount": "Studi-Rabatt",
+    "team": "Team",
+    "twitter": "Twitter",
+    "useful": "Nützliches"
+  },
+  "header": {
+    "account": "Dein Konto",
+    "alreadyKnew": "Schon gewusst?",
+    "cart": "Warenkorb",
+    "gifts": "Geschenke",
+    "home": "Home",
+    "kids": "Kinder",
+    "ladys": "Damen",
+    "livingAndLife": "Wohnen & Leben",
+    "mens": "Herren",
+    "ourCriteria": "Unsere Kriterien",
+    "profile": "Dein Profil",
+    "profileImage": "{{username}} Profilbild",
+    "signIn": "Jetzt anmelden",
+    "signOut": "Abmelden",
+    "wishList": "Deine Merkliste"
+  },
+  "meta": {
+    "default": {
+      "title": "mycompany"
+    },
+    "title": {
+      "cart": "Dein Warenkorb"
+    }
+  }
+}

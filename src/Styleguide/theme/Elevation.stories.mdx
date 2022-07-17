@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs'
+import theme from './'
+
+<Meta title="Styleguide/Elevation" />
+
+<style>{`
+    .elevation-preview {
+        text-align: center;
+        height: 100px;
+        margin: 0 8px 100px;
+        background: rgb(125,153,23);
+        line-height: 100px;
+        color: #ffffff;
+        font-size: 30px;
+    }
+`}</style>
+
+# Elevation
+
+We do have Primary, Secondary and Modal of elevation.
+
+Primary show a shadow left,right,top and bottom
+Secondary show a shadow only bottom such as Navbar
+
+Each component that has an elevation effect (box-shadow) should be configurable with an elevation property.
+
+Default = 0 elevation
+
+## Preview
+
+<>
+  {Object.keys(theme.elevation).map((name) => (
+    <div key={name}>
+      <div
+        className="elevation-preview"
+        style={{ boxShadow: theme.elevation[name] }}
+      >
+        {name}
+      </div>
+    </div>
+  ))}
+</>

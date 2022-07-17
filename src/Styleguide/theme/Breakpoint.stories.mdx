@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs'
+import theme from './'
+
+<Meta title="Styleguide/Breakpoint" />
+
+# Breakpoint
+
+Breakpoints are always handled with px units to not interfere with the rem baseFont behavior and prevent flickering
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.keys(theme.breakpoint).map((name) => (
+      <tr key={name}>
+        <td>{name}</td>
+        <td>{theme.breakpoint[name].px()}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

@@ -1,0 +1,5 @@
+# example owners file:
+# https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners#example-of-a-codeowners-file
+
+# sre-team owns the repository settings managed by probot
+.github/settings.yml @mycompany/sre-team

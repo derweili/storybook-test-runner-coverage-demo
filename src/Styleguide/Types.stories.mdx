@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Helper/Types" />
+
+# Enum
+
+A selection of Typescript Types to guarantee a consitent property handling all over the ecosystem and to create a common sense of vocabulary to use in terms of talking about component states
+
+## Enums
+
+### Size
+
+`Size.Tiny`
+`Size.Small`
+`Size.Medium`
+`Size.Large`
+`Size.ExtraLarge`
+
+### Status
+
+`Status.Default`
+`Status.Success`
+`Status.Warning`
+`Status.Error`
+
+### Variant
+
+`Variant.Primary`
+`Variant.Secondary`
+
+### FontWeight
+
+`FontWeight.Light`
+`FontWeight.Regular`
+`FontWeight.Bold`
+
+### Easing
+
+`Easing.EaseIn`
+`Easing.EaseOut`
+`Easing.EaseInOut`
+`Easing.Sharp`
+
+### Duration
+
+`Duration.Shortest`
+`Duration.Shorter`
+`Duration.Short`
+`Duration.Default`
+`Duration.Complex`
+`Duration.EnteringScreen`
+`Duration.LeavingScreen`
+
+## Usage
+
+```tsx
+import React from 'react'
+import { Size } from '@mycompany/design-system/Styleguide'
+
+type Props = {
+  size: Size
+}
+
+export default ({ size }: Props) => {
+  if (size === Size.Large) {
+    return <div>Large</div>
+  }
+
+  return <div>Default</div>
+}
+```

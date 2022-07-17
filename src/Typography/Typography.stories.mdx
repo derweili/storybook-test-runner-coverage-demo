@@ -1,0 +1,277 @@
+import { Story, Meta, ArgsTable, Preview, Canvas } from '@storybook/addon-docs'
+import {
+  Status,
+  TypographyUnit,
+  Size,
+  Variant,
+} from '@mycompany/design-system/Styleguide'
+import Typography from './Typography'
+
+<Meta
+  title="Component/Typography"
+  component={Typography}
+  argTypes={{
+    display: {
+      options: { ...TypographyUnit },
+      control: { type: 'radio' },
+    },
+    status: {
+      options: Status,
+      control: { type: 'radio' },
+    },
+    spacing: {
+      options: { None: false, ...Size },
+      control: { type: 'radio' },
+    },
+    component: {
+      control: { type: 'text' },
+    },
+    variant: {
+      options: Variant,
+      control: { type: 'radio' },
+    },
+  }}
+/>
+
+# Typography
+
+<Story name="Basic">
+  {(args) => (
+    <Typography {...args}>
+      {`Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+      voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+      clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+      amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+      diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+      sit amet.`}
+    </Typography>
+  )}
+</Story>
+
+## Display
+
+### Body1
+
+<Canvas>
+  <Story name="Display: Body1" args={{ display: TypographyUnit.Body1 }}>
+    {(args) => (
+      <Typography {...args}>Body 1 - Used for important body text</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### Body2
+
+<Canvas>
+  <Story name="Display: Body2" args={{ display: TypographyUnit.Body2 }}>
+    {(args) => (
+      <Typography {...args}>Body 2 - Used for secondary body text</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### Headline1
+
+<Canvas>
+  <Story name="Display: Headline1" args={{ display: TypographyUnit.Headline1 }}>
+    {(args) => <Typography {...args}>Headline 1</Typography>}
+  </Story>
+</Canvas>
+
+### Headline2
+
+<Canvas>
+  <Story name="Display: Headline2" args={{ display: TypographyUnit.Headline2 }}>
+    {(args) => <Typography {...args}>Headline 2</Typography>}
+  </Story>
+</Canvas>
+
+### Headline3
+
+<Canvas>
+  <Story name="Display: Headline3" args={{ display: TypographyUnit.Headline3 }}>
+    {(args) => <Typography {...args}>Headline 3</Typography>}
+  </Story>
+</Canvas>
+
+### Headline4
+
+<Canvas>
+  <Story name="Display: Headline4" args={{ display: TypographyUnit.Headline4 }}>
+    {(args) => <Typography {...args}>Headline 4</Typography>}
+  </Story>
+</Canvas>
+
+### Headline5
+
+<Canvas>
+  <Story name="Display: Headline5" args={{ display: TypographyUnit.Headline5 }}>
+    {(args) => <Typography {...args}>Headline 5</Typography>}
+  </Story>
+</Canvas>
+
+### Caption
+
+<Canvas>
+  <Story name="Display: Caption" args={{ display: TypographyUnit.Caption }}>
+    {(args) => (
+      <Typography {...args}>Caption - I am a description Text</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### Action
+
+<Canvas>
+  <Story name="Display: Action" args={{ display: TypographyUnit.Action }}>
+    {(args) => (
+      <Typography {...args}>Action - Something Interactive</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### FooterHeading
+
+<Canvas>
+  <Story
+    name="Display: FooterHeading"
+    args={{ display: TypographyUnit.FooterHeading }}
+  >
+    {(args) => <Typography {...args}>FooterHeading</Typography>}
+  </Story>
+</Canvas>
+
+### FooterPhrasing
+
+<Canvas>
+  <Story
+    name="Display: FooterPhrasing"
+    args={{ display: TypographyUnit.FooterPhrasing }}
+  >
+    {(args) => <Typography {...args}>FooterPhrasing</Typography>}
+  </Story>
+</Canvas>
+
+## Component
+
+You can easily overwrite the used html tag to keep a certain displaying
+
+<Canvas>
+  <Story
+    name="Component"
+    args={{ display: TypographyUnit.Headline1, component: 'h5' }}
+  >
+    {(args) => <Typography {...args}>I am actually an h5 Element</Typography>}
+  </Story>
+</Canvas>
+
+## Status
+
+### Success
+
+<Canvas>
+  <Story name="Status: Success" args={{ status: Status.Success }}>
+    {(args) => (
+      <Typography {...args}>{`Something expected happend!`}</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### Warning
+
+<Canvas>
+  <Story name="Status: Warning" args={{ status: Status.Warning }}>
+    {(args) => (
+      <Typography {...args}>{`Something unexpected happend!`}</Typography>
+    )}
+  </Story>
+</Canvas>
+
+### Error
+
+<Canvas>
+  <Story name="Status: Error" args={{ status: Status.Error }}>
+    {(args) => (
+      <Typography {...args}>{`Something critical happend!`}</Typography>
+    )}
+  </Story>
+</Canvas>
+
+## Lorem Ipsum
+
+<Canvas>
+  <Story name="Lorem Ipsum" args={{ spacing: Size.ExtraLarge }}>
+    {(args) => (
+      <>
+        <Typography display="headline1">mycompany Ipsum</Typography>
+        <Typography display="body1">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis.
+        </Typography>
+        <Typography display="headline2">Lorem Ipsum</Typography>
+        <Typography display="body2">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </Typography>
+        <Typography display="headline2">Lorem Ipsum</Typography>
+        <Typography display="caption">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante.
+        </Typography>
+        <Typography display="body2">
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </Typography>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+## i18n
+
+<Canvas>
+  <Story name="i18n">
+    {(args) => <Typography {...args}>{`sample.translation.key`}</Typography>}
+  </Story>
+</Canvas>
+
+## Usage
+
+```tsx
+import Typography from '@mycompany/design-system/Typography'
+```
+
+## Props
+
+<ArgsTable of={Typography} />

@@ -1,0 +1,244 @@
+import { Story, Meta, ArgsTable, Preview, Canvas } from '@storybook/addon-docs'
+import {
+  Size,
+  FlexboxDirection,
+  FlexboxAlignContent,
+  FlexboxAlignItems,
+  FlexboxJustification,
+  FlexboxWrap,
+} from '@mycompany/design-system/Styleguide'
+
+import Grid from './Grid'
+
+<Meta title="Component/Grid" component={Grid} />
+
+<style>{`
+  .grid-preview {
+    background: #f2f2f2;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    border-radius: 3px;
+    text-align: center;
+  }
+`}</style>
+
+# Grid
+
+<Story name="Introduction" args={{}}>
+  {(args) => <Grid container {...args}></Grid>}
+</Story>
+
+Read https://css-tricks.com/snippets/css/a-guide-to-flexbox/ for a better flexbox grid understanding
+
+## Default Behavior
+
+<Canvas>
+  <Story name="Default Behavior" args={{}}>
+    <Grid container>
+      <Grid item tiny={4}>
+        <div className="grid-preview">tiny=4</div>
+      </Grid>
+      <Grid item tiny={4}>
+        <div className="grid-preview">tiny=4</div>
+      </Grid>
+      <Grid item tiny={4}>
+        <div className="grid-preview">tiny=4</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Responsive Behavior
+
+<Canvas>
+  <Story name="Responsive Behavior" args={{}}>
+    <Grid container>
+      <Grid item zero={4} medium={'auto'}>
+        <div className="grid-preview">tiny=12 medium=4</div>
+      </Grid>
+      <Grid item zero={4} medium={6}>
+        <div className="grid-preview">tiny=12 medium=4</div>
+      </Grid>
+      <Grid item tiny={4} medium={12}>
+        <div className="grid-preview">tiny=12 medium=12</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Responsive Props
+
+<Canvas>
+  <Story name="ResponsiveProps" args={{}}>
+    <Grid
+      container
+      alignItems={{
+        [Size.Zero]: FlexboxAlignItems.Center,
+        [Size.Tiny]: FlexboxAlignItems.FlexEnd,
+      }}
+    >
+      <Grid item>
+        <div className="grid-preview" style={{ lineHeight: '100px' }}>
+          item
+        </div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Auto Sizing
+
+<Canvas>
+  <Story name="Auto Sizing" args={{}}>
+    <Grid container>
+      <Grid item tiny={'auto'}>
+        <div className="grid-preview">tiny=auto</div>
+      </Grid>
+      <Grid item tiny={2}>
+        <div className="grid-preview">tiny=2</div>
+      </Grid>
+      <Grid item tiny={'auto'}>
+        <div className="grid-preview">tiny=auto</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## AlignContent
+
+Not cross browser compatible, use AlignItems instead (https://stackoverflow.com/a/37233578)
+
+<Canvas>
+  <Story name="AlignContent" args={{}}>
+    <Grid container alignContent={FlexboxAlignContent.FlexEnd}>
+      <Grid item>
+        <div className="grid-preview" style={{ lineHeight: '100px' }}>
+          item
+        </div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## AlignItems
+
+<Canvas>
+  <Story name="AlignItems" args={{}}>
+    <Grid container alignItems={FlexboxAlignItems.FlexEnd}>
+      <Grid item>
+        <div className="grid-preview" style={{ lineHeight: '100px' }}>
+          item
+        </div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Direction
+
+<Canvas>
+  <Story name="Direction" args={{}}>
+    <Grid container direction={FlexboxDirection.RowReverse}>
+      <Grid item>
+        <div className="grid-preview">1</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">2</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">3</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Justify
+
+<Canvas>
+  <Story name="Justify" args={{}}>
+    <Grid container justify={FlexboxJustification.Center}>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item tiny={2}>
+        <div className="grid-preview">tiny=2</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Wrap
+
+<Canvas>
+  <Story name="Wrap" args={{}}>
+    <Grid container wrap={FlexboxWrap.NoWrap}>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+      <Grid item>
+        <div className="grid-preview">item</div>
+      </Grid>
+    </Grid>
+  </Story>
+</Canvas>
+
+## Usage
+
+```tsx
+import { Grid } from '@mycompany/design-system/Grid'
+```
+
+## Props
+
+<ArgsTable of={Grid} />

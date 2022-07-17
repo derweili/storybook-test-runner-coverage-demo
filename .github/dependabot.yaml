@@ -1,0 +1,53 @@
+# Set update schedule for GitHub Actions
+
+version: 2
+# Uncomment when you use ruby gems
+# registries:
+#   # sample registry of the mycompany hosted gems
+#   ruby-github:
+#     type: rubygems-server
+#     url: https://rubygems.pkg.github.com/mycompany
+#     token: ${{ secrets.AVS_PIPELINE_PAT }}
+
+updates:
+  # updates to
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: 'monthly'
+    # assignees: []
+    reviewers:
+      - 'mycompany/frontend-team'
+      - 'mycompany/sre-team'
+      - 'mycompany/b2c-team'
+    # Labels on pull requests for security and version updates
+    labels:
+      - dependencies
+      - gh-actions
+  # Maintain dependencies for npm
+  - package-ecosystem: 'npm'
+    directory: '/'
+    open-pull-requests-limit: 10 # default is 5
+    schedule:
+      interval: 'weekly'
+    reviewers:
+      - 'mycompany/frontend-team'
+    labels:
+      - dependencies
+      - js
+  # Uncomment when you use ruby gems
+  # - package-ecosystem: 'bundler'
+  #   open-pull-requests-limit: 10 # default is 5
+  #   insecure-external-code-execution: allow
+  #   registries:
+  #     - ruby-github
+  #   directory: '/'
+  #   schedule:
+  #     # Check for updates to Gemfile every week
+  #     interval: 'weekly'
+  #   assignees: []
+  #   reviewers: []
+  #   labels:
+  #     - dependencies
+  #     - ruby

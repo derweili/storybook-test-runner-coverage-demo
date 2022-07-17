@@ -1,0 +1,53 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Stack, StackItem } from '.'
+import { argTypesControl } from '../../docs/utils/arg-types-control'
+
+<Meta title="Component/Stack" />
+
+# Stack
+
+## Example
+
+<Canvas>
+  <Story
+    argTypes={{
+      alignment: argTypesControl.flexboxAlignment,
+      as: argTypesControl.text,
+      direction: argTypesControl.flexboxDirection,
+      justification: argTypesControl.flexboxJustification,
+      spacing: argTypesControl.size,
+      wrap: argTypesControl.flexboxWrap,
+    }}
+    name="Example"
+  >
+    {(args) => (
+      <Stack {...args}>
+        <StackItem>1</StackItem>
+        <StackItem>2</StackItem>
+        <StackItem>3</StackItem>
+      </Stack>
+    )}
+  </Story>
+</Canvas>
+
+## StackItem
+
+### Example
+
+<Canvas>
+  <Story
+    argTypes={{
+      as: argTypesControl.text,
+      growth: argTypesControl.number,
+    }}
+    name="StackItem"
+  >
+    {(args) => (
+      <Stack>
+        <StackItem {...args}>1</StackItem>
+        <StackItem>2</StackItem>
+        <StackItem>3</StackItem>
+      </Stack>
+    )}
+  </Story>
+</Canvas>

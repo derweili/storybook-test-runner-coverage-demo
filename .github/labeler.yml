@@ -1,0 +1,10 @@
+# https://github.com/actions/labeler
+
+# Add 'gh-actions' label
+gh-actions:
+  - .github/*
+  - .github/**/*
+
+# Add 'documentation' label
+documentation:
+  - '*.md'

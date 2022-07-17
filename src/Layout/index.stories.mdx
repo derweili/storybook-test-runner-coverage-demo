@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Layout, LayoutItem } from '.'
+import { argTypesControl } from '../../docs/utils/arg-types-control'
+
+<Meta title="Component/Layout" />
+
+# Layout
+
+## Example
+
+<Canvas>
+  <Story name="Example">
+    {(args) => (
+      <Layout {...args}>
+        <LayoutItem />
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+## LayoutItem
+
+### Example
+
+<Canvas>
+  <Story
+    argTypes={{
+      elevationLevel: argTypesControl.elevation,
+      spacing: argTypesControl.size,
+      stackLevel: argTypesControl.number,
+      variant: argTypesControl.variant,
+    }}
+    name="LayoutItem"
+  >
+    {(args) => (
+      <Layout>
+        <LayoutItem {...args} />
+      </Layout>
+    )}
+  </Story>
+</Canvas>

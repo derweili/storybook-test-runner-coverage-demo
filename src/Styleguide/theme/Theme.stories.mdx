@@ -1,0 +1,26 @@
+import ReactJson from 'react-json-view'
+import { Meta } from '@storybook/addon-docs'
+import { clearThemeTypes } from '../../../docs/preview'
+import {
+  theme,
+  ColorValue,
+  SizeValue,
+} from '@mycompany/design-system/Styleguide'
+
+<Meta title="Styleguide/Theme" />
+
+# Theme
+
+The theme contains all styleguide information and makes them accessable in the code all over the ecosystem
+
+## Explorer
+
+<ReactJson
+  src={clearThemeTypes(theme)}
+  name="theme"
+  displayDataTypes={false}
+  collapsed={1}
+  shouldCollapse={(field) => {
+    return field.src instanceof ColorValue || field.src instanceof SizeValue
+  }}
+/>

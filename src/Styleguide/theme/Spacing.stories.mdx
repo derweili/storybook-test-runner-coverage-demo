@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs'
+import theme from './'
+import { Size } from '../types'
+import { SpacingPreview } from '../../../docs/preview'
+
+<Meta title="Styleguide/Spacing" />
+
+# Spacing
+
+All spacing should have the same base as multiplier
+
+## Base Spacing
+
+<SpacingPreview spacing={theme.spacing.base} />
+
+## Size: Tiny
+
+<SpacingPreview spacing={theme.spacing.size[Size.Tiny]} />
+
+## Size: Small
+
+<SpacingPreview spacing={theme.spacing.size[Size.Small]} />
+
+## Size: Medium
+
+<SpacingPreview spacing={theme.spacing.size[Size.Medium]} />
+
+## Size: Large
+
+<SpacingPreview spacing={theme.spacing.size[Size.Large]} />
+
+## Size: ExtraLarge
+
+<SpacingPreview spacing={theme.spacing.size[Size.ExtraLarge]} />

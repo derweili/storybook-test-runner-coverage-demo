@@ -1,0 +1,103 @@
+import { Story, Meta, ArgsTable, Canvas } from '@storybook/addon-docs'
+import { Typography } from '@mycompany/design-system/Typography'
+import {
+  Size,
+  Variant,
+  Status,
+  TypographyUnit,
+} from '@mycompany/design-system/Styleguide'
+import { HeartIcon } from '@mycompany/design-system/Icon'
+import TextLink from './TextLink'
+
+<Meta
+  title="Component/TextLink"
+  component={TextLink}
+  argTypes={{
+    spacing: {
+      options: { None: false, ...Size },
+      control: { type: 'radio' },
+    },
+    variant: {
+      options: Variant,
+      control: { type: 'radio' },
+    },
+    underline: {
+      control: { type: 'boolean' },
+    },
+  }}
+/>
+
+# Default
+
+<Canvas>
+  <Story name="Default" args={{}}>
+    {(args) => (
+      <TextLink {...args}>
+        <Typography variant={args.Variant} display={TypographyUnit.caption}>
+          Verkauf und Versand durch
+        </Typography>
+      </TextLink>
+    )}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Variant: Primary" args={{ variant: Variant.Primary }}>
+    {(args) => (
+      <TextLink {...args}>
+        <Typography variant={args.Variant} display={TypographyUnit.caption}>
+          Verkauf und Versand durch
+        </Typography>
+      </TextLink>
+    )}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Variant: Secondary" args={{ variant: Variant.Secondary }}>
+    {(args) => (
+      <TextLink {...args}>
+        <Typography variant={args.Variant} display={TypographyUnit.caption}>
+          Verkauf und Versand durch
+        </Typography>
+      </TextLink>
+    )}
+  </Story>
+</Canvas>
+
+# Icon Text
+
+<Canvas>
+  <Story
+    name="Variant: Icon-Text"
+    args={{ attachment: <HeartIcon />, variant: Variant.Secondary }}
+  >
+    {(args) => (
+      <TextLink {...args}>
+        <Typography variant={args.Variant} display={TypographyUnit.caption}>
+          Verkauf und Versand durch
+        </Typography>
+      </TextLink>
+    )}
+  </Story>
+</Canvas>
+
+# Icon Only
+
+<Canvas>
+  <Story
+    name="attachment: Primary"
+    args={{ attachment: <HeartIcon />, spacing: Size.Medium }}
+  >
+    {(args) => <TextLink {...args} />}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="attachment: Secondary"
+    args={{ variant: Variant.Secondary, attachment: <HeartIcon /> }}
+  >
+    {(args) => <TextLink {...args} />}
+  </Story>
+</Canvas>

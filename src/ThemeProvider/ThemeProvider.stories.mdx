@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Helper/ThemeProvider" />
+
+# ThemeProvider
+
+## Styled Components
+
+Please use the `StyleProvider` to enable the global theme in styled-components.
+
+```tsx
+import ThemeProvider from '@mycompany/design-system/ThemeProvider'
+
+const MyApp = (
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
+)
+```
+
+Accessing the theme is done by the default styled-component context behavior https://styled-components.com/docs/advanced#theming.
+
+```tsx
+import styled from 'styled-components'
+
+export default styled.button`
+  border-radius: ${({ theme }) => theme.shape.borderRadius.rem()};
+  font-weight: ${(props) => props.theme.typography.fontWeight.regular};
+  margin: ${(props) => props.theme.spacing.size.medium.rem()};
+`
+```

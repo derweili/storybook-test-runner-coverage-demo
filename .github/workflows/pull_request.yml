@@ -1,0 +1,74 @@
+name: Pull Request
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linter:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '16.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Linter
+        run: yarn lint
+
+  test_build:
+    name: Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version: '16.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Unit-Tests
+        run: yarn coverage:unit
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run Build storybook
+        run: yarn storybook:build
+
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server dist-storybook --port 6006 --silent" \
+            "npx wait-on tcp:6006 && yarn run coverage:storybook"
+
+      - name: Run Build
+        run: yarn build
+
+      - name: Merge Test Coverage
+        run: "yarn run coverage:merge && yarn run coverage:merge-report"
+        
+      - name: Run sonar scanner
+        uses: SonarSource/sonarcloud-github-action@v1.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

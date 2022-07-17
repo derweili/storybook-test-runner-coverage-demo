@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Helper/Mixins" />
+
+# Mixins
+
+There are multiple useable mixins for styled-components
+
+## Usage
+
+```tsx
+import { mixin } from '@mycompany/design-system/Styleguide'
+import styled from 'styled-components'
+
+export default styled.div`
+  ${mixin.typography.headline3}
+`
+```

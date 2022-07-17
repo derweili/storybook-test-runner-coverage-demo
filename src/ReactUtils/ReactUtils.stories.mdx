@@ -1,0 +1,111 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Helper/ReactUtils" />
+
+# ReactUtils
+
+## Custom Hooks
+
+### `useTheme()`
+
+Custom Hook to access the theme in a functional React Component
+
+```tsx
+import React from 'react'
+import { useTheme } from '@mycompany/design-system/ReactUtils'
+
+export default () => {
+  const theme = useTheme()
+
+  return <div>Primary color is: {theme.color.variant.primary.base.rgb()}</div>
+}
+```
+
+Use Object destructuring for more explicit access
+
+```tsx
+import React from 'react'
+import { useTheme } from '@mycompany/design-system/ReactUtils'
+
+export default () => {
+  const { color } = useTheme()
+
+  return <div>Primary color is: {color.variant.primary.base.rgb()}</div>
+}
+```
+
+### `useDebounce()`
+
+If you are not familar with the debounce conecpt check [This Article](https://medium.com/@jamischarles/what-is-debouncing-2505c0648ff1)
+
+```tsx
+import React, { useState } from 'react'
+import { useDebounce } from '@mycompany/design-system/ReactUtils'
+
+export default () => {
+  const debounce = useDebounce()
+  // Use debounce wrapper at any function
+
+  return <div></div>
+}
+```
+
+### `useBreakpoint()`
+
+Get information over the current breakpoint the client viewport is rendered in
+
+```tsx
+import React, { useState } from 'react'
+import { useBreakpoint } from '@mycompany/design-system/ReactUtils'
+
+export default () => {
+  const {
+    currentBreakpoint,
+    isGreaterThan,
+    isSmallerThan,
+    windowWidth,
+    windowHeight,
+  } = useBreakpoint()
+  // Use debounce wrapper at any function
+
+  return <div></div>
+}
+```
+
+#### Params
+
+`useBreakpoint( initialSize: Size = Size.Tiny, bind: boolean = true, debounceOffset: number = 100 )`
+
+- **initialSize** The size that is used if the window object is not available (yet)
+  - Usefull to control the view in a SSR context
+  - Default Tiny to support the Mobile First philosphy
+- **bind** if `false` there will be no window resize listener and only the initial size is available
+- **debounceOffset** The debounce delay for the window resize event
+
+## Helper
+
+### `getCurrentBreakpoint(windowWidth: number)`
+
+```tsx
+import { getCurrentBreakpoint } from '@mycompany/design-system/ReactUtils'
+
+console.log(getCurrentBreakpoint(800)) // Size.Small
+```
+
+### `isBreakpointGreaterThan(size: Size, comparison: Size)`
+
+```tsx
+import { isBreakpointGreaterThan } from '@mycompany/design-system/ReactUtils'
+import { Size } from '@mycompany/design-system/Styleguide'
+
+console.log(isBreakpointGreaterThan(Size.Large, Size.Medium)) // true
+```
+
+### `isBreakpointSmallerThan(size: Size, comparison: Size)`
+
+```tsx
+import { isBreakpointSmallerThan } from '@mycompany/design-system/ReactUtils'
+import { Size } from '@mycompany/design-system/Styleguide'
+
+console.log(isBreakpointGreaterThan(Size.Large, Size.Medium)) // false
+```
