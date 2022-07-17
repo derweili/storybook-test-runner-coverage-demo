@@ -14,7 +14,7 @@ jobs:
     name: Label the PR size
     steps:
       # https://github.com/CodelyTV/pr-size-labeler
-      - uses: codelytv/pr-size-labeler@v1.7.0
+      - uses: codelytv/pr-size-labeler@v1.8.1
         with:
           IGNORED: ".*\n!.gitignore\npackage-lock.json"
           GITHUB_TOKEN: ${{ github.token }}
