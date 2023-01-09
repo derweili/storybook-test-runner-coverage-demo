@@ -654,15 +654,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.14.7", "@babel/parser@^7.18.6":
+"@babel/parser@^7.1.0", "@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.14.7", "@babel/parser@^7.16.0", "@babel/parser@^7.16.10", "@babel/parser@^7.16.3", "@babel/parser@^7.16.7", "@babel/parser@^7.17.0", "@babel/parser@^7.17.3", "@babel/parser@^7.18.6", "@babel/parser@^7.8.4":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.18.6.tgz#845338edecad65ebffef058d3be851f1d28a63bc"
   integrity sha512-uQVSa9jJUe/G/304lXspfWVpKpK4euFLgGiMQFOCpM/bgcAdeoHwi/OQz23O9GK2osz26ZiXRRV9aV+Yl1O8tw==
-
-"@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.16.0", "@babel/parser@^7.16.10", "@babel/parser@^7.16.3", "@babel/parser@^7.16.7", "@babel/parser@^7.17.0", "@babel/parser@^7.17.3", "@babel/parser@^7.8.4":
-  version "7.17.3"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.3.tgz#b07702b982990bf6fdc1da5049a23fece4c5c3d0"
-  integrity sha512-7yJPvPV+ESz2IUTPbOL+YkIGyCqOyNIzdguKQuJGnH7bg1WTIifuM21YqokFt/THWh1AkCRn9IgoykTRCBVpzA==
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.16.0":
   version "7.16.2"
@@ -6937,10 +6932,10 @@ eslint-plugin-react@^7.29.2:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.6"
 
-eslint-plugin-styled-components-a11y@^0.0.34:
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-styled-components-a11y/-/eslint-plugin-styled-components-a11y-0.0.34.tgz#18cdc8449287b8a32eb36e6a22aa7a61ebabe8c8"
-  integrity sha512-mewaS63feIkha6+Lk5Xt/jS3wrljTuBeVh8khB52HxEjlGWP0ndVpOEU/LeKguu80U/gmDxxu0KZiPrbLSyYrg==
+eslint-plugin-styled-components-a11y@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-styled-components-a11y/-/eslint-plugin-styled-components-a11y-0.1.0.tgz#3b12c4fa85797e8f3d43e5557ef6085f41cb97ed"
+  integrity sha512-n/FNF+iqVPO4ppDoW4Nw14KT9CJwOnmLOykhhKc3cWF0hclMNgBXaL562d6vw71U4U+8CRsmgh1iwWCJEVSWmA==
   dependencies:
     "@babel/parser" "^7.8.4"
     eslint-config-airbnb "^17.1.0"
